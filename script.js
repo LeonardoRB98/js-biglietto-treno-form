@@ -1,20 +1,35 @@
 // creo la variabile nome e cognome
-var nomeCognome = document.getElementById('nome_cognome');
+var nomeCognomeInput = document.getElementById('nome_cognome');
 // creo la variabile km
-var km = document.getElementById('km');
+var kmInput = document.getElementById('km');
 // creo la variabile meta
-var eta = document.getElementById('eta');
+var etaInput = document.getElementById('eta');
 // recupero i dati dall' HTML
 document.getElementById('genera').addEventListener('click',
-function() {
-  km = ParseInt('km');
-  console.log(nomeCognome.value);
-  console.log(km.value);
-  console.log(eta.value);
+  function() {
 
-  var costoBiglietto = km * 0.21;
-  console.log(costoBiglietto);
+    // estraggo il valore dalla varibile kmInput
+    var km = kmInput.value;
+    var eta = etaInput.value;
+    console.log(nomeCognomeInput.value);
+    console.log(kmInput.value);
+    console.log(etaInput.value);
+
+    // calcolo costo biglietto
+    var costoBiglietto = km * 0.21;
+    console.log(costoBiglietto);
+    var sconto;
+    // sconto minorenni
+    if (eta == 'minorenne') {
+      sconto = (costoBiglietto * 20) / 100;
+      console.log(sconto);
+      costoBiglietto += -sconto;
+      console.log(costoBiglietto);
+      // sconto over 65
+    } else if (eta == 'over 65') {
+      sconto = (costoBiglietto * 40) / 100;
+      console.log(sconto);
+      costoBiglietto += -sconto;
+      console.log(costoBiglietto);
+    }
 })
-// calcolo il costo del biglietto
-// var costoBiglietto = km. * 0.21;
-// console.log(costoBiglietto);
