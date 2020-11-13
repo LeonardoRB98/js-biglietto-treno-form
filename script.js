@@ -11,6 +11,7 @@ document.getElementById('genera').addEventListener('click',
     // estraggo il valore dalla varibile kmInput
     var km = kmInput.value;
     var eta = etaInput.value;
+    var nomeCognome = nomeCognomeInput.value;
     console.log(nomeCognomeInput.value);
     console.log(kmInput.value);
     console.log(etaInput.value);
@@ -29,7 +30,16 @@ document.getElementById('genera').addEventListener('click',
     } else if (eta == 'over 65') {
       sconto = (costoBiglietto * 40) / 100;
       console.log(sconto);
-      costoBiglietto += -sconto;
+      costoBiglietto = costoBiglietto - sconto;
       console.log(costoBiglietto);
+    } else {
+
     }
+    var carrozza = Math.floor(Math.random() * 9) + 1;
+    var codiceCp = Math.floor(Math.random() * 100000) + 90000;
+    document.getElementById('passeggero').innerHTML = nomeCognome;
+    document.getElementById('offerta').innerHTML = eta;
+    document.getElementById('carrozza').innerHTML = carrozza;
+    document.getElementById('codice_cp').innerHTML = codiceCp;
+    document.getElementById('costo_biglietto').innerHTML = costoBiglietto;
 })
